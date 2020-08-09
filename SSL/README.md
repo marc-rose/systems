@@ -1,7 +1,9 @@
 # systems
 
-Creating a request using the openssl command-line utility:
-The following command performs the following actions
+Creating a request using the openssl command-line utility
+
+
+The following command performs the following actions:
 - create new certificate request ssl.csl
 - create private key ssl.key
 - target sslconfig.txt for detailed configuration (country, locality, etc.)
