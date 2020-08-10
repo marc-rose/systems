@@ -4,7 +4,7 @@ The following command performs the following actions:
 - create private key ssl.key
 - target sslconfig.txt for detailed configuration (country, locality, etc.)
 
-Modify the `sslconfig.txt` file before running this command.
+Modify the `sslconfig.txt` before running this command.
 
 `openssl req -new -sha256 -nodes -out ssl.csr -newkey rsa:2048 -keyout ssl.key -config sslconfig.txt`
 
