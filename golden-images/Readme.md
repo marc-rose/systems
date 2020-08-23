@@ -91,18 +91,16 @@ Install the Operating System
 1. Rename the VM in the OS to match the template name
 1. Open **System Properties > Advanced tab > Performance > Settings > Visual Effects tab: Adjust for best performance**
 1. Add Windows Features: run PowerShell as Administrator. Run commands to install
-   1. Telnet Client 
+   -  Telnet Client 
    
-   `Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient`
+      `Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient`
    
 1. Install the SNMP Service: open PowerShell as Administrator. Run commands to install and verify
 
    **NOTE:** A reboot is required before an SNMP community string can be configured to the service. Group Policy should be used to push the string if necessary
    
-   1. 
-   
-      `Add-WindowsCapability -Online -Name "SNMP.Client~~~~0.0.1.0"`
-      `Get-WindowsCapability -Online -Name "SNMP*"`
+   `Add-WindowsCapability -Online -Name "SNMP.Client~~~~0.0.1.0"`
+   `Get-WindowsCapability -Online -Name "SNMP*"`
       
 1. Uninstall any remaining Programs that are unneeded.
 1. Check for and install any remaining updates to the machine and reboot.
@@ -126,28 +124,18 @@ Install the Operating System
 1. Run the following commands (modified for build 1909) in PowerShell. The process should take a few minutes and suggest a reboot.
    
    **NOTE:** Always run PowerShell as Administrator
+   
    `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
    `C:\Optimize\Win10_VirtualDesktop_Optimize.ps1 -WindowsVersion 1909 -Verbose`
    
 1. Open System Properties > Advanced tab > Performance > Settings > Visual Effects tab: Adjust for best performance
-1. Add Windows Features: run PowerShell as Administrator. Run commands to install
-   - Telnet Client
-   
-     `Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient`
-      
-1. Install the SNMP Service: run PowerShell as Administrator. Run commands to install and verify
-
-   **NOTE:** A reboot is required before an SNMP community string can be configured to the service. Group Policy should be used to push the string if necessary
-   `Add-WindowsCapability -Online -Name "SNMP.Client~~~~0.0.1.0"`
-   `Get-WindowsCapability -Online -Name "SNMP*"`
-   
 1. Uninstall any programs that are unneeded.
 
 #### Cleaning the virtual machine configuration and converting to template
 1. Ensure the appropriate local accounts exist and unnecessary accounts are removed
 1. Enable Windows Updates and allow the machine to contact Windows Update
    1. Open the Local Group Policy Editor and enable **Select when Quality Updates are received**
-   1. Ensure ***Update Orchestrator Service** (UsoSvc) is set to **Automatic (Delayed Start)**
+   1. Ensure **Update Orchestrator Service** (UsoSvc) is set to **Automatic (Delayed Start)**
    1. Run any updates to the latest version/build.
 1. Run Virtual-Desktop-Optimization-Tool to re-apply any base optimization settings
 
