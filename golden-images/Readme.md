@@ -46,9 +46,8 @@ Template can be targeted with an infrastructure provisioning tool such as Terraf
 -	https://thevirtualhorizon.com/2017/03/13/my-windows-10-template-build-process/
 -	https://notesfrommwhite.net/2016/12/11/how-to-build-a-windows-2016-vmware-template/
 -	https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
--	VDITemplatingWP.pdf
--	https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool#full-instructions-for-windows-10-2004-or-windows-10-1909 
-  -	The Virtual Desktop Optimization Tool was created by Windows experts working for Microsoft Premier Services that turned a lengthy Windows 10 VDI Image Optimization document into a set of scripts
+-	https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool#full-instructions-for-windows-10-2004-or-windows-10-1909
+    - The Virtual Desktop Optimization Tool was created by Windows experts working for Microsoft Premier Services that turned a lengthy Windows 10 VDI Image Optimization document into a set of scripts
 
 #### Sections:
 -	Configure Virtual Machine in vCenter
