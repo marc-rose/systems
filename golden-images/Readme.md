@@ -6,7 +6,7 @@ This document demonstrates the steps to create a Windows 10 Workstation VM Golde
 
 ## Procedure Scope
 
-Servers and workstations deployed from VM Templates using a Guest OS Customization (GOSC) Specification require an image be created with certain requirements for each OS. Following are the minimum requirements for GOSC and our environment.
+Servers and workstations deployed from VM Templates using a Guest OS Customization (GOSC) Specification require an image be created with certain requirements for each OS. Following are the minimum requirements for GOSC.
 Template can be targeted with an infrastructure provisioning tool such as Terraform to scale the process of deploying entire environments.
 
 #### Common requirements:
