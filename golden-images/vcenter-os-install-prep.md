@@ -41,7 +41,9 @@ Documents used as reference:
       - Memory
       - Hard Disk
       - Network: Set to a staging VLAN, ideally one with DHCP configured. This can streamline the template creation process.
+        
         **NOTE:** ensure VMXNET 3 is selected
+        
       - CD/DVD Drive: Add the appropriate ISO to the CD/DVD drive of the virtual machine. ISOs are usually located in the ISO folder on the first Datastore of the cluster. Ensure Connect At Power On is checked.
    1. VM Options tab
       - Ensure Force BIOS setup is checked. We will be modifying the BIOS in a later step.
