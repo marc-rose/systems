@@ -29,8 +29,8 @@ Documents used as reference:
 ### Configure Virtual Machine in vCenter
 1. Create a new virtual machine.
 1. Choose the name for your virtual machine template.
-      - This should match the of the server to be created.
-      - To minimize NETBIOS name issues, keep server names to 15 characters or less.
+      - This should match the of the machine to be created.
+      - To minimize NETBIOS name issues, keep machine names to 15 characters or less.
 1. Select a temporary compute resource for the virtual machine.
 1. Select a datastore for the virtual machine. The first datastore is generally designated for Templates and ISOs
 1. Select the vSphere compatibility for the virtual machine.
