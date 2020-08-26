@@ -45,7 +45,7 @@ Template can be targeted with an infrastructure provisioning tool such as Terraf
 ### Configure Virtual Machine in vCenter
 Follow vcenter-os-install-prep.md document with the following customizations:
 -	CentOS Minimal Installer is sufficient and will help reduce template/server size.
--	Select "CentOS 7 (64-bit)" as guest OS for the virtual machine.
+-	Select "CentOS 7 (64-bit)" or "CentOS 8 (64-bit)" as guest OS for the virtual machine.
 
 ### Install the Operating System
 1. Launch the CentOS installer.
@@ -54,14 +54,16 @@ Follow vcenter-os-install-prep.md document with the following customizations:
 1. Configure the network card of the virtual machine with a temporary (static or DHCP) configuration. The network settings will be removed in a later step. In this example we are using DHCP.
    1. Give the CentOS machine a temporary hostname. Click **Apply**.
    1. Enable the interface to obtain an IP address. Click **Done**.
-1. Start the installation.
-1. Configure the root password. Make sure this meets complexity requirements, and is documented in an appropriate location.
-1. Configure an administrator user. Make sure this is documented in an appropriate location or based on established password standards for templates. Click Done.
-1. Reboot the virtual machine. You may need to click **Finish configuration** before **Reboot** is available
+1. Click on **Begin Installation**. The installation will happen the background and can take several minutes.
+
+   1. Configure the root password. Make sure this meets complexity requirements, and is documented in an appropriate location.
+   1. Configure an administrator user. Make sure this is documented in an appropriate location. Click **Done**.
+
+1. When installation is complete, reboot the virtual machine. You may need to click **Finish configuration** before **Reboot** is available.
 1. Connect to the VM by one of the following methods:
-   - SSH to the new CentOS virtual machine via CLI or SSH client with the local administrator account. You should be able to connect via hostname if DNS/WINS/NETBIOS is functioning.
+   - SSH to the new CentOS virtual machine via CLI or SSH client with the local administrator account. You should be able to connect via hostname if DNS/WINS/NETBIOS is functioning. The IP can be found by using the command `ip addr`
    - vSphere console. This can cause difficulty when attempting to copy and paste text.
-1. Upgrade the CentOS packages
+1. Upgrade the installed CentOS packages
 
    `$ sudo yum upgrade [-y]`
 
@@ -104,13 +106,13 @@ Follow vcenter-os-install-prep.md document with the following customizations:
    
    1. Edit **/etc/selinux/config** file and change/set the following line: `SELINUX=permissive`
    
-   **NOTE:** The following command automatically replaces the line. The status will not change until after a reboot or when temporarily changed to **permissive** with `setenforce 0`
+   **NOTE:** The following command automatically replaces the line. The status will not change until after a reboot or when temporarily changed to **permissive** with `sudo setenforce 0`
    
    `$ sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config`
 
 1. Reboot the virtual machine.
 
-   `$ reboot`
+   `$ sudo reboot`
 
 
 #### Cleaning the virtual machine configuration and converting to template
