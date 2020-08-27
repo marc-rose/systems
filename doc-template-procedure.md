@@ -1,8 +1,8 @@
-# Procedure - CentOS Template
+# Procedure - NAME OF PROCEDURE
 
 ## Procedure Purpose
 
-This document demonstrates the steps to <simple explanation of document>
+This document demonstrates the steps to <SIMPLE EXPLANATION OF DOCUMENT>
 
 ## Procedure Scope
 
