@@ -2,11 +2,11 @@
 
 ## Procedure Purpose
 
-This document demonstrates the steps to <SIMPLE EXPLANATION OF DOCUMENT>
+This document demonstrates the steps to *SIMPLE EXPLANATION OF DOCUMENT*
 
 ## Procedure Scope
 
-<BACKGROUND AND APPLIESTO INFO>
+*BACKGROUND AND APPLIESTO INFO*
 
 #### Requirements or Assumptions:
 - List of custom settings
