@@ -21,8 +21,9 @@ This procedure applies to and is tested with:
 
 
 #### Documents used as reference:
--	https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+- https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 - https://www.liquidweb.com/kb/how-to-install-and-configure-ansible/
+- https://ssh.guru/ansible-for-dummies-1-playbooks/
 
 #### Sections:
 -	Install Ansible Environment
@@ -57,8 +58,9 @@ This procedure applies to and is tested with:
    $ python -V
    ```
 
-1. [Optional] Create user that will run Ansible playbooks that is not sudo
+1. [Optional] Create username and password that will run Ansible playbooks and is not root
 
    ```
    $ sudo useradd ansibleuser
+   $ sudo passwd ansibleuser
    ```
