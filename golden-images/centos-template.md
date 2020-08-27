@@ -213,7 +213,7 @@ Regular maintenance should be done to ensure templates are secure and up-to-date
 
   `$ sudo yum list updates`
 
-  `$ sudo yum check-update
+  `$ sudo yum check-update`
 
 - Install package with Yum:
 
