@@ -64,3 +64,19 @@ This procedure applies to and is tested with:
    $ sudo useradd ansibleuser
    $ sudo passwd ansibleuser
    ```
+
+1. Find a folder to place the ansible structures. I like to create `/opt/ansible` for my projects
+   
+   **NOTE:** The folder can be anywhere and uses defaults/inheritance to decide variables to use
+   
+   ```
+   $ sudo mkdir /opt/ansible/hello-world
+   $ cd /opt/ansible/hello-world
+   ```
+   
+   1. Copy default files from ansible install directory and verify
+
+      ```
+      $ sudo cp -r /etc/ansible/* /opt/ansible/hello-world
+      $ tree /opt/ansible/hello-world
+      ```
