@@ -70,75 +70,59 @@ Follow vcenter-os-install-prep.md document with the following customizations:
 - Select "Microsoft Windows Server 2016 or later (64-bit)" as guest OS for the virtual machine.
 - SW_DVD9_Win_Svr_STD_Core_and_DataCtr_Core_2016_64Bit_English_-3_MLF_X21-30350.ISO is the most recent ISO used to test this document
 
-Install the Operating System
-Launch the Windows Setup. Click Next, then Install now
+### Install the Operating System
+1. Launch the Windows Setup. Click Next, then Install now
+1. Select the correct version of Windows Server 2016. Click Next. Accept the license terms, click Next. 
+1. Choose Custom installation and Drive 0 Unallocated Space. Click Next.
+1. Installer will restart automatically after install and reboot again after Getting ready.
+1. Enter a password for the local Administrator account that meets Microsoft's default password complexity requirements. Click Finish
+1. Log in with the local Administrator account.
+1. Install VMware Tools
+   **NOTE:** This may be required to install drivers and establish network connectivity
+   1. Click Install VMWare Tools... from vCenter. Mount CD/DVD drive when prompted
+   1. From the OS of the template open the mounted drive and run setup64.exe as administrator. Perform install with default settings and reboot when prompted
 
-Select the correct version of Windows Server 2016. Click Next. Accept the license terms, click Next. 
+### Perform OS tweaks and customizations
+1. Disable Windows Firewall for Private networks and Guest or public networks. This will allow remote connectivity needed for later steps.
+1. Run Windows Updates and reboot as needed until VM is up to date.
+1. Install VMWare OS Optimization Tool on the VM
+   1. Download from site and transfer to VM in C:/
+   1. Run the executable to run the tool
+1. Download and Customize OSOT Templates
+   1. Navigate to the Public Templates tab and download the WindowsServer 2016 - LoginVSI.com - VDILIKEAPRO template
+   1. Navigate to the My Templates tab and select the downloaded template. Click Copy and Edit button to save a copy of the template into MyTemplates folder
+   1. Modify the new template to fit the needs of our environment. Use the Search field to find the specific settings and Remove. Save template
+1. Analyze and Optimize the VM with the VMWare OS Optimization Tool
+   1. Ensure the appropriate template is selected and click the Analyze button to review optimization items
+   1. Review settings that will be changed to see the specific keys that will be affected.
+   1. Some steps have been found to not process correctly during Optimization. The step(s) may time out and require additional troubleshooting.
+   
+      **NOTE:** Steps for disabling Services may say FAILED because the service is not installed
+      - Troubleshooting steps:
+        - Uncheck or modify the step and Optimize again.
+        - Reboot the VM before attempting again with all steps checked
+      - Known steps that can hang:
+        - Features - Windows Media Player
+        - Features - WCF-Services
+        - Features - Xps-Foundation
+   1. Click Optimize button to apply changes
+   1. Optimization may take multiple attempts and OS reboots until settings are applied correctly.
+1. Rename the VM in the OS to match the template name.
+1. Add Windows Features: run PowerShell as Administrator. Run commands to install
+   - Telnet Client
+   ```
+   Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient
+   ```
+   - SNMP Service
+   ```
+   Install-WindowsFeature -Name 'SNMP-Service','RSAT-SNMP'
+   ```
 
-Choose Custom installation and Drive 0 Unallocated Space. Click Next.
+1. Install additional applications and standalone utilities as required for build
+1. Check one last time for any Windows Updates to be installed.
+1. Clean the virtual machine configuration and convert to template (see section in document)
 
-Installer will restart automatically after install and reboot again after Getting ready.
-
-Enter a password for the local Administrator account that meets Microsoft's default password complexity requirements. Click Finish
-
-Log in with the local Administrator account.
-Install VMware Tools
-NOTE: This may be required to install drivers and establish network connectivity
-
-Click Install VMWare Tools... from vCenter. Mount CD/DVD drive when prompted
-
-From the OS of the template open the mounted drive and run setup64.exe as administrator. Perform install with default settings and reboot when prompted
-
-Perform OS tweaks and customizations
-Disable Windows Firewall for Private networks and Guest or public networks. This will allow remote connectivity needed for later steps.
-
-Install Dameware on the VM. This can help in order to transfer files required in later steps.
-
-Run Windows Updates and reboot as needed until VM is up to date.
-Install VMWare OS Optimization Tool on the VM
-Download from site and transfer to VM in C:/
-Run the executable to run the tool
-
-Download and Customize OSOT Templates
-Navigate to the Public Templates tab and download the WindowsServer 2016 - LoginVSI.com - VDILIKEAPRO template
-
-Navigate to the My Templates tab and select the downloaded template. Click Copy and Edit button to save a copy of the template into MyTemplates folder
-
-Modify the new template to fit the needs of our environment. Use the Search field to find the specific settings and Remove. Save template
-
-
-Analyze and Optimize the VM with the VMWare OS Optimization Tool
-Ensure the appropriate template is selected and click the Analyze button to review optimization items
-
-Review settings that will be changed to see the specific keys that will be affected.
-Some steps have been found to not process correctly during Optimization. The step(s) may time out and require additional troubleshooting.
-NOTE: Steps for disabling Services may say FAILED because the service is not installed
-
-Troubleshooting steps:
-
-Uncheck or modify the step and Optimize again.
-Reboot the VM before attempting again with all steps checked
-Known steps that can hang:
-
-Features - Windows Media Player
-Features - WCF-Services
-Features - Xps-Foundation
-
-Click Optimize button to apply changes
-
-Optimization may take multiple attempts and OS reboots until settings are applied correctly.
-
-Rename the VM in the OS to match the template name.
-Add Windows Features: run PowerShell as Administrator. Run commands to install
-Telnet Client
-Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient
-SNMP Service
-
-Install-WindowsFeature -Name 'SNMP-Service','RSAT-SNMP'
-Install additional applications and standalone utilities as required for build
-Check one last time for any Windows Updates to be installed.
-Clean the virtual machine configuration and convert to template (see section in document)
-Maintaining VM Operating System
+### Maintaining VM Operating System
 Regular maintenance should be done to ensure templates are secure and up-to-date
 
 Convert template to VM
